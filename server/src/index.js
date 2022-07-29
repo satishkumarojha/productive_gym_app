@@ -3,16 +3,26 @@ const app = express();
 const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
+const productController = require('./controllers/productivity.controller');
+const {register,login}=require("./controllers/Auth.controller");
+const server = http.createServer(app);
 app.use(cors());
 app.use(express.json());
-const server = http.createServer(app);
-
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
+
+
+app.use("/product",productController)
+app.post("/register",register)
+app.post("/login",login)
+app.get('/',(req,res)=>{
+  res.send("Wellcome to Hackathon");
+})
+
 
 io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);

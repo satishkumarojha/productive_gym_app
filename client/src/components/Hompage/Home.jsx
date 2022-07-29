@@ -7,6 +7,7 @@ import {
   useBreakpointValue,
   Box,
 } from '@chakra-ui/react';
+import Blog from '../Blog/Blog';
 
 export default function Home() {
   return (
@@ -52,9 +53,7 @@ export default function Home() {
         </Stack>
       </VStack>
     </Flex>
-    <Box py={60}>
-
-    </Box>
+    <Blog/>
     </>
   );
 }
