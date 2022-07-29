@@ -39,7 +39,7 @@ export default function Navbar() {
           <HStack spacing={8} alignItems={'center'}>
             <Box>
               <Heading>
-               <Link to='/'><Text color={'white'}>Logo</Text></Link>
+               <Link to='/'><Text color={'white'}>ProGym</Text></Link>
               </Heading>
             </Box>
             <HStack
@@ -59,7 +59,7 @@ export default function Navbar() {
               _hover={{ bg: 'blue.500' }}
               mr={'10px'}
              >
-              My Account
+              <Link to='/login'><Text>My Account</Text></Link>
             </Button>
             <Menu>
               <MenuButton
