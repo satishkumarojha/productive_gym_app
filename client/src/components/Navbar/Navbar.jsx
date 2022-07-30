@@ -21,10 +21,24 @@ import {
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
+import { useDispatch } from 'react-redux/es/exports';
+import {useNavigate,useLocation} from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { outTodosLoading, outTodosSuccess } from '../../redux/Auth/action';
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const token = useSelector((state)=>state.auth.token);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleLog = ()=>{
+    if(token){
+      dispatch(outTodosSuccess('token_'))
+    }
+    else{
+      navigate('/login');
+    }
+  }
   return (
     <>
       <Box   bg={'#23242A'} px={4} py={3} className={style.sticky} zIndex={'100'}>
@@ -79,7 +93,7 @@ export default function Navbar() {
                 <MenuItem>Account</MenuItem>
                 <MenuItem>Write</MenuItem>
                 <MenuDivider />
-                <MenuItem>Logout</MenuItem>
+                <MenuItem onClick={handleLog}>{token!=""?"Logout":"Login"}</MenuItem>
               </MenuList>
             </Menu>
           </Flex>

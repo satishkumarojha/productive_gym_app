@@ -17,9 +17,30 @@ import {
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
   import { useNavigate } from "react-router-dom";
+import axios from 'axios';
   export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate(); 
+    const[info,setInfo] = useState({
+      email:"",
+      password:""
+    })
+    const handleInfo = (e)=>{
+      let {name,value} = e.target;
+      setInfo({...info,
+      [name]:value
+      })
+    }
+    const handleSignup = ()=>{
+      axios.post("https://gym-chat-app-live.herokuapp.com/register",{
+        email:info.email,
+        password:info.password
+      })
+      .then((r)=>{
+        navigate("/login");
+      })
+      .catch((e)=>{console.log(e)});
+    }
     return (
       <Flex
         minH={'100vh'}
@@ -57,12 +78,12 @@ import {
               </HStack>
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
-                <Input type="email" />
+                <Input type="email" name={'email'} value={info.email} onChange={handleInfo}/>
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
                 <InputGroup>
-                  <Input type={showPassword ? 'text' : 'password'} />
+                  <Input type={showPassword ? 'text' : 'password'} value={info.password} name={'password'} onChange={handleInfo}/>
                   <InputRightElement h={'full'}>
                     <Button
                       variant={'ghost'}
@@ -76,6 +97,7 @@ import {
               </FormControl>
               <Stack spacing={10} pt={2}>
                 <Button
+                onClick={handleSignup}
                   loadingText="Submitting"
                   size="lg"
                   bg={'blue.400'}

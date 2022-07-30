@@ -12,5 +12,7 @@ function loadData(key){
 function saveData(key,data){
     localStorage.setItem(key,JSON.stringify(data));
 }
-
-export {loadData,saveData};
+function removeItem(key){
+    localStorage.removeItem(key);
+}
+export {loadData,saveData,removeItem};

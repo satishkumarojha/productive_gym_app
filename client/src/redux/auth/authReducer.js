@@ -1,5 +1,5 @@
 import * as types from './actiontypes'
-import { loadData,saveData } from '../../utils/localStorage'
+import { loadData,saveData,removeItem } from '../../utils/localStorage'
 const init = {
     token:loadData("token_")||"",
     isError:false,
@@ -32,6 +32,28 @@ export const authReducer = (state=init,{type,payload})=>{
                 isError:true,
                 isLoading:false
 
+            }
+        }
+        case types.OUT_LOADING:{
+            return{
+                ...state,
+                isError:false,
+            }
+        }
+        case types.OUT_SUCCESS:{
+            removeItem(payload);
+            return{
+                ...state,
+                isError:false,
+                token:"",
+                isLoading:false,
+            }
+        }
+        case types.OUT_FAILURE:{
+            return{
+                ...state,
+                isError:true
+                
             }
         }
         default :{

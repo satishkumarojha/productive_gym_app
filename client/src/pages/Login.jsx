@@ -34,7 +34,7 @@ import { authTodosFailure, authTodosLoading, authTodosSuccess } from '../redux/A
     }
     const handleLogin = ()=>{
         dispatch(authTodosLoading());
-        axios.post("http://localhost:3001/login",{
+        axios.post("https://gym-chat-app-live.herokuapp.com/login",{
             email:info.email,
             password:info.password
         }).then((r)=>{
@@ -44,7 +44,7 @@ import { authTodosFailure, authTodosLoading, authTodosSuccess } from '../redux/A
     }
     useEffect(() => {
         if (token) {
-          navigate(location.state.pathname || "/", { replace: true });
+          navigate(location?.state?.pathname || "/", { replace: true });
         }
       }, [navigate, token]);
     return (
