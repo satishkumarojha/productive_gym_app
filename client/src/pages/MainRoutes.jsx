@@ -7,6 +7,7 @@ import { ChatPage } from './ChatPage';
 import { Exercise } from './Exercise';
 import Login  from './Login';
 import { Privateauth } from '../hoc/Privateauth';
+import SignUp from './SignUp';
 export const MainRoutes = () => {
   return (
     <div>
@@ -17,6 +18,8 @@ export const MainRoutes = () => {
             <Route path='/bmi' element={<Privateauth><Calculator/></Privateauth>}/>
             <Route path='/todo' element={<Privateauth><Exercise/></Privateauth>}/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/signup' element={<SignUp/>}/>
+
         </Routes>
     </div>
   )

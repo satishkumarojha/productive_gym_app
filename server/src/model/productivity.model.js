@@ -3,7 +3,7 @@ const mongoose=require("mongoose")
 
 
 const Productschema=mongoose.Schema({
-    Exercise_list:Array
+    Exercise_list:{type:String,required:true}
 },
 {
     versionKey:false,

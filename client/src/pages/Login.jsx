@@ -38,9 +38,7 @@ import { authTodosFailure, authTodosLoading, authTodosSuccess } from '../redux/A
             email:info.email,
             password:info.password
         }).then((r)=>{
-            console.log(r.data)
             dispatch(authTodosSuccess(r.data))
-            navigate("/")
         })
         .catch((e)=>dispatch(authTodosFailure(e)));
     }

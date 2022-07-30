@@ -21,7 +21,7 @@ const BlogTags = (props) => {
     <HStack spacing={2} marginTop={props.marginTop}>
       {props.tags.map((tag) => {
         return (
-          <Tag size={'md'} variant="solid" colorScheme="orange" key={tag}>
+          <Tag size={'md'} variant="solid" bg={'blue.400'} key={tag}>
             {tag}
           </Tag>
         );
@@ -71,7 +71,7 @@ const Blog = () => {
               <Image
                 borderRadius="lg"
                 src={
-                  'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80'
+                  'https://media.nutrition.org/wp-content/uploads/2020/01/keto-diet.png'
                 }
                 alt="some good alt text"
                 objectFit="contain"
@@ -95,7 +95,7 @@ const Blog = () => {
           <BlogTags tags={['Engineering', 'Product']} />
           <Heading marginTop="1">
             <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
-              Blog article title
+            The Ketogenic Diet
             </Link>
           </Heading>
           <Text
@@ -103,10 +103,7 @@ const Blog = () => {
             marginTop="2"
             color={useColorModeValue('gray.700', 'gray.200')}
             fontSize="lg">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            The author of the article says that “Based on available evidence, a well-formulated ketogenic diet does not appear to have major safety concerns for the general public and can be considered a first-line approach for obesity and diabetes. High-quality clinical trials of ketogenic diets will be needed to assess important questions about their long-term effects and full potential in clinical medicine.
           </Text>
           {/* <BlogAuthor name="John Doe" date={new Date('2021-04-06T19:01:27Z')} /> */}
         </Box>
@@ -132,7 +129,7 @@ const Blog = () => {
               <Image
                 borderRadius="lg"
                 src={
-                  'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80'
+                  'https://media.nutrition.org/wp-content/uploads/2020/01/coffee-consumption.png'
                 }
                 alt="some good alt text"
                 objectFit="contain"
@@ -153,10 +150,10 @@ const Blog = () => {
           flexDirection="column"
           justifyContent="center"
           marginTop={{ base: '3', sm: '0' }}>
-          <BlogTags tags={['Engineering', 'Product']} />
+          <BlogTags tags={['Engineering', 'Product']}  />
           <Heading marginTop="1">
             <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
-              Blog article title
+            Long-term coffee consumption
             </Link>
           </Heading>
           <Text
@@ -164,12 +161,9 @@ const Blog = () => {
             marginTop="2"
             color={useColorModeValue('gray.700', 'gray.200')}
             fontSize="lg">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            The aim of this study was to examine if the CYP1A2 genotype or a genetic score for caffeine metabolism (caffeine-GS) modifies the association between habitual coffee consumption and the risk of cardiovascular disease (CVD). The authors concluded that heavy coffee consumption was associated with a modest increase in CVD risk, but this association was unaffected by genetic variants influencing caffeine metabolism.
           </Text>
-          <BlogAuthor name="John Doe" date={new Date('2021-04-06T19:01:27Z')} />
+          
         </Box> 
       </Box>
     </Container>

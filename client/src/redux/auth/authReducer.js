@@ -16,7 +16,7 @@ export const authReducer = (state=init,{type,payload})=>{
             }
         } 
         case types.AUTH_SUCCESS :{
-            console.log(payload.token);
+            console.log(payload);
             let newtoken = payload.token;
             saveData("token_",newtoken);
             return {
